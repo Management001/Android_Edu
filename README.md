@@ -177,4 +177,99 @@ public class MainActivity extends AppCompatActivity {
 
 차후 정리합시다. 그리고 집에서 정리해요.
 
+그리고 실제로 작업을 돌려보았습니다. 
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="값을 입력하세요"
+        android:textSize="30dp"
+        />
+
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1 button"
+        />
+
+    <Button
+        android:id="@+id/btn_test1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2 button"
+        />
+
+</LinearLayout>
+```
+
+```java
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText et_id;
+    Button btn_test;
+    Button btn_test1;
+
+    String data ="HappyBirthday To you";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        et_id = findViewById(R.id.et_id);
+        btn_test = findViewById(R.id.btn_test);
+        btn_test1 = findViewById(R.id.btn_test1);
+
+        btn_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et_id.setText("Yes Try this!!");
+            }
+        });
+
+        btn_test1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et_id.setText("");
+                et_id.setHint(data);
+            }
+        });
+    }
+}
+```
+
+![image](https://user-images.githubusercontent.com/44454495/235865880-98278314-9c38-4650-9d6e-315824f8c99c.png)
+
+
 
